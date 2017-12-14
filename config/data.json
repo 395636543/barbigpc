@@ -1,0 +1,38 @@
+{
+  "status": 0,
+  "message":"",
+  "placard": "公告内容：欢迎大家光临本酒吧",
+  "imgurl": "http://i3.letvimg.com/lc02_iscms/201712/06/11/24/a7dbdb352d6848d2904baa7d8ef6d78c.jpg",
+  "qrcode": "http://i0.letvimg.com/lc02_iscms/201511/27/16/40/bef471bcd74d4695acc6501e053e0d04.png",
+  "imgwall": "http://i2.letvimg.com/lc05_iscms/201712/05/17/20/6af56677ce514d149f5a85d7379c49f0.jpg",
+  "items": [
+    {
+      "headimg": "http://i3.letvimg.com/lc06_lecloud/201608/14/17/35/banner.jpg",
+      "nickname": "昵称-大料",
+      "sendtime": "2017.10.22 11:55 26",
+      "sendtime": "开干、开干......",
+      "imgurl": ""
+    },
+    {
+      "headimg": "http://i3.letvimg.com/lc02_iscms/201712/06/11/24/a7dbdb352d6848d2904baa7d8ef6d78c.jpg",
+      "nickname": "昵称-峰子",
+      "sendtime": "2017.10.25 11:51 28",
+      "msg": "收到、收到......",
+      "imgurl": "http://pre.ih5.cn/v3/files/2258589/17499/vng1kOEp.jpg"
+    },
+    {
+      "headimg": "http://i3.letvimg.com/lc06_isvrs/201712/06/09/39/f838d185-5b5f-4467-882e-e0e1013df45a/thumb/2_180_101.jpg",
+      "nickname": "昵称-龙美女",
+      "sendtime": "2017.10.28-11:25 23",
+      "msg": "真棒......",
+      "imgurl": "http://i3.letvimg.com/lc05_iscms/201709/05/18/36/7854ea039319418aa37eb0ee61543c26.jpg"
+    },
+    {
+      "headimg": "http://i3.letvimg.com/lc06_isvrs/201712/06/09/39/f838d185-5b5f-4467-882e-e0e1013df45a/thumb/2_180_101.jpg",
+      "nickname": "昵称-龙美女",
+      "sendtime": "2017.10.28-11:25 23",
+      "msg": "我要霸屏",
+      "imgurl": "https://www.w3cplus.com/sites/default/files/blogs/2017/1702/understanding-flexbox-30.png"
+    }
+  ]
+}
