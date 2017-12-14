@@ -71,7 +71,6 @@
     <Pascreenui v-if="isshowPascreen"
                 style="position: absolute;top: 0px;width: 100%;height: 100%;background-color: #1ab700"
                 @hidPascreen="showPascreen"></Pascreenui>
-    <Shake v-if="ishowShake"></Shake>
   </div>
 </template>
 <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
@@ -80,7 +79,6 @@
 <script>
   import Gameui from './components/Gameui'//需要引用Gameui才可以使用
   import Pascreenui from './components/Pascreenui'
-  import Shake from './games/shake/Shake.vue'
 
   export default {
     name: 'App',
@@ -88,7 +86,6 @@
       return {
         isshowgame: false,
         isshowPascreen: false,
-        ishowShake:false,
         placard: '',
         imgurl: '',
         qrcode: '',
@@ -187,8 +184,7 @@
     },
     components: {
       Gameui,
-      Pascreenui,
-      Shake
+      Pascreenui
     }
   }
 </script>

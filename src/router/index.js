@@ -1,9 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Gameui from '@/components/Gameui'
-// import Httpdata from "../Httpdata";
 import Pascreenui from '@/components/Pascreenui'
-// import Shake from '@/games/shake/Shake'
+import Shakecomponent from '@/games/shake/Shakecomponent.vue'
 Vue.use(Router)
 
 // 使用
@@ -19,11 +18,11 @@ export default new Router({
       path: '/',
       name: 'Pascreenui',
       component: Pascreenui
+    },
+    {
+      path: '/',
+      name: 'Shakecomponent',
+      component: Shakecomponent
     }
-    // {
-    //   path: '/',
-    //   name: 'Shake',
-    //   component: Shake
-    // }
   ]
 })
