@@ -28,6 +28,42 @@
                     </div>
                 </div>
             </div>
+            <div id="page2" class="page page2">
+                    <div class="countDown scaleImages cy_animateNum" style="display:block">
+                       <span class="cy_num">30</span>
+                    </div>
+                    <div class="gameBox">
+                        <div class="oneBox">
+                            <!--
+                        <div class="oneUser">
+                            <div class="userMove animate">
+                                <img src="http://img.wemew.com/wemew/admin/images/head4.jpg" alt="">
+                                <span>我是名字</span>
+                            </div>
+                        </div>
+                        <div class="oneColumn">
+                            <div class="columnBox">
+                                <div class="columnMove">
+                                    <img src="http://img.wemew.com/wemew/admin/images/ranking1.gif" alt="">
+                                </div>
+                            </div>
+                            <div class="columnBottom"></div>
+                        </div>
+                        -->
+                        </div>
+                    </div>
+                </div>
+                <div id="page3" class="page page3">
+                        <div class="winnerBox">
+                            <div class="winnerPos">
+                                <img class="winnerStar winnerBG" src="http://img.wemew.com/wemew/admin/images/shake_star.png" alt="">
+                                <img class="winnerEnd winnerBG" src="http://img.wemew.com/wemew/admin/images/shake_end_bg.png" alt="">
+                                <div class="winnerThree"><div class="winner winnerOne"><img src="http://wemew.oss-cn-qingdao.aliyuncs.com/2017-12-09-22/151282988605653855.jpg" alt=""><span>樱小丸</span><span>冠军</span></div></div>
+                                <div class="winnerList"></div>
+                            </div>
+                        </div>
+                        <a class="newGame" id="newGame" onclick="step.step3()">再玩一次&nbsp;<span class="gameEnter">Enter</span></a>
+                    </div>
             <div class="videoSwitch" :class="classSwitchObject" title="开启背景乐" @click="closemusic"></div>
         </div>
         <div class="wemewFullVideo">
@@ -115,7 +151,7 @@
         -moz-osx-font-smoothing: grayscale;
         text-align: center;
         color: #2c3e50;
-        line-height: 0;
+        /*line-height: 0;*/
     }
 
     * {

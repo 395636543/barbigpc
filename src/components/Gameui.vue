@@ -1,6 +1,6 @@
 <template>
     <div>
-        <table style="text-align: center;background: #FFFFFF">
+        <table style="text-align: center;background: rgba(0,0,0,.8)">
             <tr>
                 <th v-for="game in games">
                     <a :href="game.href" :target="game.href">

@@ -42,12 +42,12 @@
         <div>
           <img style="height: 300px" :src="imgwall"/>
         </div>
-        <div>
+        <div id="qrcode-wrap" style="left:30%;top:30%">
           <img style="height: 250px;" :src="qrcode"/>
         </div>
         <div class="row clearfix">
           <div class="col-md-12 column">
-            <button type="button" class="btn btn-lg btn-info" style="width: 200px;margin-top:15px">设置
+            <button type="button" class="btn btn-lg btn-info" style="width: 200px;margin-top:50px">设置
             </button>
           </div>
         </div>
@@ -67,7 +67,7 @@
         </div>
       </div>
     </div>
-    <Gameui v-if="isshowgame" style="position: absolute;right: 300px;top: 80%;"></Gameui>
+    <Gameui v-if="isshowgame" style="position: fixed;right: 316px;bottom:0;"></Gameui>
     <Pascreenui v-if="isshowPascreen"
                 style="position: absolute;top: 0px;width: 100%;height: 100%;background-color: #1ab700"
                 @hidPascreen="showPascreen"></Pascreenui>
@@ -227,5 +227,10 @@
     right: 0px;
     /*height: 800px;*/
   }
-
+  #qrcode-wrap{
+    position: fixed;
+    padding: 10px;
+    border: 2px solid #46b8da;
+    background-color: #fff;
+  }
 </style>
