@@ -16,7 +16,7 @@
             return {
                 msg: '霸屏动画',
                 ishide: true,
-                showtime: 30000
+                showtime: 5000
             }
         },
         mounted() {
@@ -25,7 +25,7 @@
         methods: {
             hidediv: function () {
                 //倒计时结束，隐藏霸屏
-                this.$emit('hidPascreen');
+                this.$emit('closePascreen');
             }
         }
     }

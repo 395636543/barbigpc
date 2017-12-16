@@ -1,28 +1,31 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Gameui from '@/components/Gameui'
-import Pascreenui from '@/components/Pascreenui'
-import Shakecomponent from '@/games/shake/Shakecomponent.vue'
+import Lottery from '@/components/games/Lottery'
+import Shake from '@/components/games/Shake'
+import {Routeurls} from '@/api/Configrouter'
+
 Vue.use(Router)
 
-// 使用
-// Vue.use(Httpdata);
 export default new Router({
   routes: [
     {
-      path: '/',
+      path: Routeurls.gameui_route,
       name: 'Gameui',
       component: Gameui
     },
     {
-      path: '/',
-      name: 'Pascreenui',
-      component: Pascreenui
+      path: Routeurls.lottery_route,
+      name: 'Lottery',
+      component: Lottery
     },
     {
-      path: '/',
-      name: 'Shakecomponent',
-      component: Shakecomponent
+      path: Routeurls.shake_route,
+      name: 'Shake',
+      component: Shake,
+      // beforeEnter: (to, from, next) => {
+      //   next()
+      // }
     }
   ]
 })
