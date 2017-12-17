@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="Gameui-wrap">
     <table style="text-align: center;background: rgba(0,0,0,.8)">
       <tr>
         <th v-for="game in games">
@@ -97,5 +97,12 @@
 
   a {
     color: #42b983;
+  }
+  .Gameui-wrap{
+    position: fixed;right: -100%;bottom: 0;
+    transition: right 0.5s;
+  }
+  .Gameui-wrap.show{
+    right: 30%; 
   }
 </style>

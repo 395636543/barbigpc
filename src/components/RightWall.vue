@@ -4,7 +4,7 @@
       <div>
         <img style="height: 300px" :src="imgwall"/>
       </div>
-      <div id="qrcode-wrap" style="">
+      <div id="qrcode-wrap" style="left:30%;top:30%">
         <img style="height: 250px;" :src="qrcode"/>
       </div>
       <div class="row clearfix">
@@ -31,7 +31,7 @@
         </div>
       </div>
     </div>
-    <router-view style="position: absolute;float: bottom;right: 300px;bottom: 40px" v-if="isrouter" @closeAllui="closeAllui"></router-view>
+    <router-view :class="{show:isrouter}" @closeAllui="closeAllui"></router-view>
   </div>
 
 </template>
@@ -95,7 +95,14 @@
     text-align: center;
     position: fixed;
     right: 0px;
-    /*height: 800px;*/
+    height: 100%;
+    z-index: 1;
   }
-
+  #qrcode-wrap{
+    position: fixed;
+    padding: 10px;
+    background-color: #5bc0de;
+    cursor: move;
+    z-index: 1;
+  }
 </style>
