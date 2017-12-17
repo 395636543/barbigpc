@@ -1,6 +1,7 @@
 <template>
   <div class="Gameui-wrap">
-    <table style="text-align: center;background: rgba(0,0,0,.8)">
+    <div class="tag">游<br/>戏</div>
+    <table style="text-align: center;background: rgba(0,104,2,.6)">
       <tr>
         <th v-for="game in games">
           <router-link :to="{path:game.href}" @click.native="clickgame(game.gameid)">
@@ -9,7 +10,7 @@
         </th>
       </tr>
       <tr>
-        <td :class="classObject" style="font-size: 15px;color: #337ab7" v-for="game in games">{{game.gamename}}</td>
+        <td :class="classObject" style="font-size: 15px;color: #fff" v-for="game in games">{{game.gamename}}</td>
       </tr>
     </table>
     <!--<router-view style="top: 0px;left: 0px;"></router-view>-->
@@ -54,6 +55,7 @@
             href: "https://www.baidu.com/",
             gameid:GameID.DICE_ROLL_ID
           },
+
           {
             gameimgurl: 'https://dpm.yeba.im/static/images/games/common/magic-cube.png',
             gamename: '转动魔方',
@@ -99,10 +101,25 @@
     color: #42b983;
   }
   .Gameui-wrap{
-    position: fixed;right: -100%;bottom: 0;
-    transition: right 0.5s;
+    position: fixed;
+    right: 0;
+    bottom: 20px;
+    transform: translate(100%, 0);
+    transition: transform 0.5s;
   }
   .Gameui-wrap.show{
-    right: 30%; 
+    transform: translate(0, 0);
+  }
+  .Gameui-wrap .tag{
+    position: absolute;
+    width: 40px;
+    height: 140px;
+    left: -40px;
+    top: 0;
+    text-align: center;
+    color: #fff;
+    padding-top: 50px;
+    border-radius: 5px 0 0 5px;
+    background-color: rgba(0,104,2,.6)
   }
 </style>
