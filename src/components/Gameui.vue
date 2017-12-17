@@ -54,7 +54,6 @@
             href: "https://www.baidu.com/",
             gameid:GameID.DICE_ROLL_ID
           },
-
           {
             gameimgurl: 'https://dpm.yeba.im/static/images/games/common/magic-cube.png',
             gamename: '转动魔方',

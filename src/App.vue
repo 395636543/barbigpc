@@ -7,9 +7,6 @@
                @closeAllui="closeAllui"></RightWall>
     <Pascreen id="pascreen" v-if="isPascreen" @closePascreen="closePascreen"></Pascreen>
 
-    <!--<router-link to="/gameui"></router-link>-->
-    <!--<router-view></router-view>-->
-
     <Shake id="shake" v-if="isShake"></Shake>
     <Lottery id="lottery" v-if="isLottery"></Lottery>
 
