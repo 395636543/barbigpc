@@ -1,9 +1,10 @@
 <template>
   <div id="app">
     <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
-    <Header id="header" v-if="isheader" :headerdata="headerdata"></Header>
-    <Chatroom id="chatroom" v-if="ischatroom" :chatdata="chatdata"></Chatroom>
-    <RightWall id="rightui" v-if="isRightWall" :walldata="walldata" @showPascreen="showPascreen" @closeAllui="closeAllui"></RightWall>
+    <HeaderTop id="headerTop" v-if="isheadertop" :headertopdata="headertopdata"></HeaderTop>
+    <Chatroom id="chatroom" ref="chatroom" v-if="ischatroom" :chatdata="chatdata"></Chatroom>
+    <RightWall id="rightui" v-if="isRightWall" :walldata="walldata" @showPascreen="showPascreen"
+               @closeAllui="closeAllui"></RightWall>
     <Pascreen id="pascreen" v-if="isPascreen" @closePascreen="closePascreen"></Pascreen>
 
     <!--<router-link to="/gameui"></router-link>-->
@@ -15,7 +16,7 @@
   </div>
 </template>
 <script>
-  import Header from '@/components/header/Header'
+  import HeaderTop from '@/components/HeaderTop'
   import Chatroom from '@/components/Chatroom'
   import RightWall from '@/components/RightWall'
   import Pascreen from '@/components/Pascreen'
@@ -27,31 +28,34 @@
     name: 'App',
     data: function () {
       return {
-        isheader:false,
-        ischatroom:false,
-        isRightWall:false,
-        isPascreen:false,
-        isGameui:false,
-        isShake:false,
-        isLottery:false,
-        walldata:{},//墙上右侧数据
-        chatdata:{},//聊天室数据
-        headerdata:{},//头部数据
+        isheadertop: false,
+        ischatroom: false,
+        isRightWall: false,
+        isPascreen: false,
+        isGameui: false,
+        isShake: false,
+        isLottery: false,
+        walldata: {},//墙上右侧数据
+        chatdata: {},//聊天室数据
+        headertopdata: {},//头部数据
       }
     },
-    beforeCreate:function(){
+    beforeCreate: function () {
       console.log("组件实例化之前")
     },
-    created:function(){
+    created: function () {
       console.log("组件实例化了")
     },
-    beforeMount:function(){
+    beforeMount: function () {
       console.log("组件写入dom结构之前")
       this.httpData('./src/api/chat.json');
     },
-    updated:function(){},//组件更新比如修改了文案
-    beforeDestroy:function(){},//组件销毁之前
-    destroyed:function(){},//组件已经销毁
+    updated: function () {
+    },//组件更新比如修改了文案
+    beforeDestroy: function () {
+    },//组件销毁之前
+    destroyed: function () {
+    },//组件已经销毁
     mounted() {
       console.log('页面加载完成')
       this.$nextTick(function () {
@@ -64,41 +68,48 @@
           //请求成功后渲染组件
           var configdata;
 
-          configdata=JSON.parse(res['bodyText']);
+          configdata = JSON.parse(res['bodyText']);
           this.chatdata = configdata.data;
           this.walldata = configdata.data;
-          this.headerdata = configdata.data;
+          this.headertopdata = configdata.data;
           this.showmainui(true)
         }, function () {
           //请求失败函数
         })
       },
-      showPascreen:function(){
+      showPascreen: function () {
         this.showmainui(false)
         this.isPascreen = true;
       },
-      closePascreen:function(){
+      closePascreen: function () {
         this.showmainui(true)
         this.isPascreen = false;
       },
-      showmainui:function(isShow){
+      showmainui: function (isShow) {
         this.ischatroom = isShow
         this.isRightWall = isShow
-        this.isheader= isShow
+        this.isheadertop = isShow
         this.isPascreen = !isShow
         this.isGameui = !isShow
+        var chatroom = this.$refs.chatroom
+        if(chatroom){
+          chatroom.clearIntervalID(!isShow)//关闭聊天室数据
+        }
       },
-      closeAllui:function(gameid){
+      closeAllui: function (gameid) {
+        var chatroom = this.$refs.chatroom
+        chatroom.clearIntervalID(true)//关闭聊天室数据
+
         this.ischatroom = false
         this.isRightWall = false
-        this.isheader= false
+        this.isheadertop = false
         this.isPascreen = false
         this.isGameui = false
         this.isShake = false;
         this.isLottery = false;
 
-        switch(gameid)
-        {
+
+        switch (gameid) {
           case GameID.SHAKE_ID:
             this.isShake = true;
             break;
@@ -109,7 +120,7 @@
       }
     },
     components: {
-      Header,
+      HeaderTop,
       Chatroom,
       RightWall,
       Pascreen,
@@ -120,7 +131,7 @@
 </script>
 
 <style>
-  #app{
+  #app {
     background-color: #0f0f0f;
   }
 </style>

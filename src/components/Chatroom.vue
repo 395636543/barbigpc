@@ -32,6 +32,7 @@
     props:['chatdata'],
     data: () => {
       return {
+        setIntervalID:0,
         items: []
       }
     },
@@ -47,7 +48,7 @@
         }
         winHeight = winHeight - 100
         document.getElementById('main').style.height = winHeight + 'px'
-        setInterval(this.createDom, 2000)
+        this.setIntervalID = setInterval(this.createDom, 2000)
         this.setscroll()
       })
     },
@@ -81,7 +82,15 @@
         }catch(err){
           console.log(err);
         }
-
+      },
+      clearIntervalID:function (val) {
+        if(val==true){
+          //  关闭心跳
+          clearInterval(this.setIntervalID);
+        }else{
+          clearInterval(this.setIntervalID);
+          this.setIntervalID = setInterval(this.createDom, 2000)
+        }
       }
     }
   }

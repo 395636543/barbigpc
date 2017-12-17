@@ -18,7 +18,7 @@
 <script>
   export default {
     name: "",
-    props:['headerdata'],
+    props:['headertopdata'],
     data: function () {
       return {
         headimgurl: 'http://static.runoob.com/images/mix/paris.jpg',
@@ -32,8 +32,8 @@
     },
     methods: {
       httpData: function () {
-        this.headimgurl = this.headerdata.headimgurl
-        this.placard = this.headerdata.placard
+        this.headimgurl = this.headertopdata.headimgurl
+        this.placard = this.headertopdata.placard
       }
     }
   }
