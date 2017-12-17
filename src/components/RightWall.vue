@@ -31,7 +31,7 @@
         </div>
       </div>
     </div>
-    <router-view style="position: absolute;right: 30%;bottom: 0" v-if="isrouter" @closeAllui="closeAllui"></router-view>
+    <router-view :class="{show:isrouter}" @closeAllui="closeAllui"></router-view>
   </div>
 
 </template>
@@ -96,6 +96,7 @@
     position: fixed;
     right: 0px;
     height: 100%;
+    z-index: 1;
   }
   #qrcode-wrap{
     position: fixed;
