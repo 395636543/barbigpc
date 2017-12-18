@@ -8,7 +8,7 @@
                    @closeAllui="closeAllui"></RightWall>
         <Pascreen id="pascreen" v-if="isPascreen" @closePascreen="closePascreen"></Pascreen>
 
-        <APPbg></APPbg>
+        <APPbg v-if="isappbg"></APPbg>
         <Gameui id="gameui" @closeAllui="closeAllui" :class="{show:isshowgameui}" style="z-index: 20"></Gameui>
         <Shake id="shake" v-if="isShake"></Shake>
         <Lottery id="lottery" v-if="isLottery"></Lottery>
@@ -38,6 +38,7 @@
                 isPascreen: false,
                 isShake: false,
                 isLottery: false,
+                isappbg:false,
                 walldata: {},//墙上右侧数据
                 chatdata: {},//聊天室数据
                 headertopdata: {},//头部数据
@@ -103,6 +104,7 @@
                 this.ischatroom = isShow
                 this.isRightWall = isShow
                 this.isheadertop = isShow
+                this.isappbg = isShow
                 //非主界面关闭
                 this.closepopui()
                 var chatroom = this.$refs.chatroom
