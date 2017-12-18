@@ -1,26 +1,17 @@
 <template>
   <div id="app">
     <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="http://img.wemew.com/wemew/admin/style/wemewOnWall.css?r=1513510629726">
     <HeaderTop id="headerTop" v-if="isheadertop" :headertopdata="headertopdata"></HeaderTop>
     <Chatroom id="chatroom" ref="chatroom" v-if="ischatroom" :chatdata="chatdata"></Chatroom>
     <RightWall id="rightui" v-if="isRightWall" :walldata="walldata" @showPascreen="showPascreen"
                @closeAllui="closeAllui"></RightWall>
     <Pascreen id="pascreen" v-if="isPascreen" @closePascreen="closePascreen"></Pascreen>
-    <div id="bgControl" style="z-index: -1">
-        <img class="onWallBg" src="http://img.wemew.com/wemew/admin/images/onWallBg.jpg" style="display: none;">
-        <div id="BgVideoBox">
-            <div class="BgVideoBoxCover"></div>
-            <video id="videoPlay1" index="4" mode="play" src="http://wemew.oss-cn-qingdao.aliyuncs.com/videos/newds/wemewDefault5.webm?r=1"></video>
-            <video id="videoPlay2" index="0" mode="wait" src="http://wemew.oss-cn-qingdao.aliyuncs.com/videos/newds/wemewDefault1.webm?r=1"></video>
-        </div>
-    </div>   
     <!--<router-link to="/gameui"></router-link>-->
     <!--<router-view></router-view>-->
 
     <Shake id="shake" v-if="isShake"></Shake>
     <Lottery id="lottery" v-if="isLottery"></Lottery>
-  
+
   </div>
 </template>
 <script>
@@ -140,6 +131,6 @@
 
 <style>
   #app {
-    /*background-color: #0f0f0f;*/
+    background-color: #0f0f0f;
   }
 </style>

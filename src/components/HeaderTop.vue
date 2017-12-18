@@ -2,10 +2,10 @@
   <div class="headdiv">
     <div>
       <img :src="headimgurl"
-           style="border-radius:50%; overflow:hidden;height: 40px;width: 40px; align-content: center;display: -webkit-flex;margin-left: 40px">
+           style="border-radius:50%; overflow:hidden;height: 80px;width: 80px; align-content: center;display: -webkit-flex;margin-left: 10px">
     </div>
-    <div style="width: 100%;">
-      <marquee style="margin:0px;margin-right: 0px;width: 100%;color:#fff" id="ptext" hspace="100" direction="left"
+    <div style="width: 100%">
+      <marquee style="margin:0px;margin-right: 0px;width: 100%" id="ptext" hspace="100" direction="left"
                behavior="alternate"
                scrollamount="100" scrolldelay="1000" loop="5" onmouseover="this.stop()"
                onmouseout="this.start();">
@@ -46,7 +46,7 @@
     align-items: center;
     font-size: 28px;
     color: #0bb4a6;
-    height: 80px;
+    /*line-height: 80px;*/
   }
 
 </style>
