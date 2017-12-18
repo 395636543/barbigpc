@@ -7,18 +7,9 @@
         <RightWall id="rightui" v-if="isRightWall" :walldata="walldata" @showPascreen="showPascreen"
                    @closeAllui="closeAllui"></RightWall>
         <Pascreen id="pascreen" v-if="isPascreen" @closePascreen="closePascreen"></Pascreen>
-        <div id="bgControl" style="z-index: -1">
-            <img class="onWallBg" src="http://img.wemew.com/wemew/admin/images/onWallBg.jpg" style="display: none;">
-            <div id="BgVideoBox">
-                <div class="BgVideoBoxCover"></div>
-                <video id="videoPlay1" index="4" mode="play"
-                       src="http://wemew.oss-cn-qingdao.aliyuncs.com/videos/newds/wemewDefault5.webm?r=1"></video>
-                <video id="videoPlay2" index="0" mode="wait"
-                       src="http://wemew.oss-cn-qingdao.aliyuncs.com/videos/newds/wemewDefault1.webm?r=1"></video>
-            </div>
-        </div>
 
-        <Gameui id="gameui" @closeAllui="closeAllui" :class="{show:isshowgameui}"></Gameui>
+        <APPbg></APPbg>
+        <Gameui id="gameui" @closeAllui="closeAllui" :class="{show:isshowgameui}" style="z-index: 20"></Gameui>
         <Shake id="shake" v-if="isShake"></Shake>
         <Lottery id="lottery" v-if="isLottery"></Lottery>
     </div>
@@ -30,11 +21,13 @@
     import RightWall from '@/components/RightWall'
     import Pascreen from '@/components/Pascreen'
     import Gameui from '@/components/Gameui'
+    import APPbg from '@/components/APPbg'
 
 
     import Shake from '@/components/games/Shake'
     import Lottery from '@/components/games/Lottery'
     import {GameID} from '@/api/Configgame'
+
     export default {
         name: 'App',
         data: function () {
@@ -43,14 +36,12 @@
                 ischatroom: false,
                 isRightWall: false,
                 isPascreen: false,
-                isGameui: false,
                 isShake: false,
                 isLottery: false,
                 walldata: {},//墙上右侧数据
                 chatdata: {},//聊天室数据
-                headertopdata:{},//头部数据
-
-                isshowgameui:false
+                headertopdata: {},//头部数据
+                isshowgameui: false
             }
         },
         beforeCreate: function () {
@@ -73,8 +64,8 @@
             console.log('页面加载完成')
             this.$nextTick(function () {
                 var gamesuiID = document.getElementById("gameui");
-                gamesuiID.addEventListener("mouseout",this.onmouseoutgames)
-                gamesuiID.addEventListener("mouseover",this.onmouseovergames)
+                gamesuiID.addEventListener("mouseout", this.onmouseoutgames)
+                gamesuiID.addEventListener("mouseover", this.onmouseovergames)
             })
         },
         methods: {
@@ -82,7 +73,6 @@
                 this.$http.get(url).then(function (res) {
                     //请求成功后渲染组件
                     var configdata;
-
                     configdata = JSON.parse(res['bodyText']);
                     this.chatdata = configdata.data;
                     this.walldata = configdata.data;
@@ -92,11 +82,11 @@
                     //请求失败函数
                 })
             },
-            onmouseovergames:function () {
+            onmouseovergames: function () {
                 this.isshowgameui = true;
                 console.log("鼠标经过........")
             },
-            onmouseoutgames:function () {
+            onmouseoutgames: function () {
                 this.isshowgameui = false;
                 console.log("鼠标离开........")
             },
@@ -108,33 +98,37 @@
                 this.showmainui(true)
                 this.isPascreen = false;
             },
+            //显示主界面
             showmainui: function (isShow) {
                 this.ischatroom = isShow
                 this.isRightWall = isShow
                 this.isheadertop = isShow
-                this.isPascreen = !isShow
-                this.isGameui = !isShow
+                //非主界面关闭
+                this.closepopui()
                 var chatroom = this.$refs.chatroom
+
                 if (chatroom) {
-                    chatroom.clearIntervalID(!isShow)//关闭聊天室数据
+                    chatroom.clearIntervalID(isShow)//关闭聊天室数据
                 }
+                // var appbg = this.$refs.appbg
+                // if (appbg) {
+                //     appbg.clearIntervalID(isShow)//关闭聊天室数据
+                // }
             },
-            closeAllui: function (gameid) {
-                var chatroom = this.$refs.chatroom
-                chatroom.clearIntervalID(true)//关闭聊天室数据
-
-                this.ischatroom = false
-                this.isRightWall = false
-                this.isheadertop = false
+            //关闭非主界面
+            closepopui:function () {
                 this.isPascreen = false
-                this.isGameui = false
-                this.isShake = false;
-                this.isLottery = false;
-
-
+                this.isShake = false
+                this.isLottery = false
+                this.isPascreen = false
+            },
+            //显示某个游戏
+            closeAllui: function (gameid) {
+                this.showmainui(false)
                 switch (gameid) {
                     case GameID.SHAKE_ID:
                         this.isShake = true;
+
                         break;
                     case GameID.LOTTERY_ID:
                         this.isLottery = true;
@@ -149,7 +143,8 @@
             Pascreen,
             Gameui,
             Lottery,
-            Shake
+            Shake,
+            APPbg
         }
     }
 </script>
