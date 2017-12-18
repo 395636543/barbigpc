@@ -4,26 +4,26 @@
       <div>
         <img style="height: 300px" :src="imgwall"/>
       </div>
-      <div id="qrcode-wrap" style="left:30%;top:30%">
-        <img style="height: 250px;" :src="qrcode"/>
+      <div id="qrcode-wrap">
+        <img :src="qrcode"/>
       </div>
-      <div class="row clearfix">
+      <div class="row clearfix" style="position:relative;z-index:1">
         <div class="col-md-12 column">
           <button type="button" class="btn btn-lg btn-info" style="width: 200px;margin-top:50px">设置
           </button>
         </div>
       </div>
       <div class="row clearfix">
-        <div class="col-md-12 column">
-          <router-link :to="gameui_route">
-          <button type="button" class="btn btn-lg btn-info" style="width: 200px;margin-top:15px"
-                  @click="showGameui">
-            游戏
-          </button>
-          </router-link>
-        </div>
+        <!--<div class="col-md-12 column">-->
+          <!--<router-link :to="gameui_route">-->
+          <!--<button type="button" class="btn btn-lg btn-info" style="width: 200px;margin-top:15px"-->
+                  <!--@click="showGameui">-->
+            <!--游戏-->
+          <!--</button>-->
+          <!--</router-link>-->
+        <!--</div>-->
       </div>
-      <div class="row clearfix">
+      <div class="row clearfix" style="position:relative;z-index:1">
         <div class="col-md-12 column">
           <button type="button" class="btn btn-lg btn-info" style="width: 200px;margin-top:15px"
                   @click="showPascreen">霸屏测试
@@ -31,7 +31,7 @@
         </div>
       </div>
     </div>
-    <router-view :class="{show:isrouter}" @closeAllui="closeAllui"></router-view>
+    <!--<router-view :class="{show:isrouter}" @closeAllui="closeAllui"></router-view>-->
   </div>
 
 </template>
@@ -69,7 +69,7 @@
           this.imgwall = this.walldata.imgwall
         },
         showGameui:function(){
-          this.$emit("showGameui")
+          // this.$emit("showGameui")
           this.isrouter = !this.isrouter;
         },
         showPascreen:function(){
@@ -100,9 +100,11 @@
   }
   #qrcode-wrap{
     position: fixed;
-    padding: 10px;
-    background-color: #5bc0de;
-    cursor: move;
+    width: 30%;
     z-index: 1;
+    bottom: 20px;
+  }
+  #qrcode-wrap img{
+    width: 80%;
   }
 </style>

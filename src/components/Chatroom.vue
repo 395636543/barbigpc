@@ -2,13 +2,14 @@
   <div id="chatroom">
     <div id="main" class="main">
       <div id="left" class="left">
-        <hr size=1 style="COLOR:#ff9999;border-style:double;width:100%">
+        <!-- <hr size=1 style="COLOR:#ff9999;border-style:double;width:100%"> -->
         <div v-for="(item, index) in items">
+
           <div
-            style="background-color: #FFFFFF;padding-left: 10px;display: flex;display: -webkit-flex;">
+            style="background-color: rgba(0,0,0,.3);padding: 20px;display: flex;display: -webkit-flex;margin-bottom:10px">
             <div>
               <img :src='item.headimg'
-                   style="width:100px; height:100px; border-radius:50%; overflow:hidden;"/>
+                   style="width:100px; height:100px; border-radius:50%; overflow:hidden;border:2px solid #4a78ff"/>
             </div>
             <div>
               <div style="display: flex;display: -webkit-flex;justify-content: flex-start;height: 30px">
@@ -19,7 +20,8 @@
               &nbsp;&nbsp;&nbsp;<img :src="item.imgurl" style="height: 200px" v-if="item.imgurl!=''"/>
             </div>
           </div>
-          <hr size=1 style="COLOR:#ff9999;border-style:double;width:100%">
+          <!-- <hr size=1 style="COLOR:#ff9999;border-style:double;width:100%"> -->
+
         </div>
       </div>
     </div>
@@ -107,12 +109,32 @@
     display: -webkit-flex;
     display: flex;
     flex-direction: row;
+        flex-direction: row;
     overflow: auto;
     overflow-x: hidden;
+    padding-left: 40px;
     /*height: 800px;*/
   }
+  #chatroom h4{
+    font-size: 24px;
+    color: #fff;
+  }
+  #chatroom h6{
+    font-size: 24px;
+    color: #fff;
+    opacity: .5;
+  }
+  #chatroom p{
+    margin-top: 15px;
+    font-size:1.4rem; 
+    color:#8bd7ff; 
+    line-height:125%; 
+    font-weight:bold; 
+    letter-spacing:2px;
+  }
+
   .left {
-    width: 70%;
+    width: 100%;
     /*height: 800px;*/
     overflow: hidden;
     overflow-x: hidden;

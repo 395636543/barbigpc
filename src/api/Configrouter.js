@@ -1,5 +1,5 @@
 export const Routeurls = {
-  gameui_route:"/gameui",
+  gameui_route:"/",
   lottery_route:"/lottery",
   shake_route:"/shake",
 }
