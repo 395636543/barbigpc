@@ -110,10 +110,10 @@
                 if (chatroom) {
                     chatroom.clearIntervalID(isShow)//关闭聊天室数据
                 }
-                // var appbg = this.$refs.appbg
-                // if (appbg) {
-                //     appbg.clearIntervalID(isShow)//关闭聊天室数据
-                // }
+                var appbg = this.$refs.appbg
+                if (appbg) {
+                    appbg.clearIntervalID(isShow)//关闭聊天室数据
+                }
             },
             //关闭非主界面
             closepopui:function () {
