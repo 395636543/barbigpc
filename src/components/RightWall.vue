@@ -14,14 +14,14 @@
         </div>
       </div>
       <div class="row clearfix">
-        <div class="col-md-12 column">
-          <router-link :to="gameui_route">
-          <button type="button" class="btn btn-lg btn-info" style="width: 200px;margin-top:15px"
-                  @click="showGameui">
-            游戏
-          </button>
-          </router-link>
-        </div>
+        <!--<div class="col-md-12 column">-->
+          <!--<router-link :to="gameui_route">-->
+          <!--<button type="button" class="btn btn-lg btn-info" style="width: 200px;margin-top:15px"-->
+                  <!--@click="showGameui">-->
+            <!--游戏-->
+          <!--</button>-->
+          <!--</router-link>-->
+        <!--</div>-->
       </div>
       <div class="row clearfix">
         <div class="col-md-12 column">
@@ -31,7 +31,7 @@
         </div>
       </div>
     </div>
-    <router-view :class="{show:isrouter}" @closeAllui="closeAllui"></router-view>
+    <!--<router-view :class="{show:isrouter}" @closeAllui="closeAllui"></router-view>-->
   </div>
 
 </template>
@@ -69,7 +69,7 @@
           this.imgwall = this.walldata.imgwall
         },
         showGameui:function(){
-          this.$emit("showGameui")
+          // this.$emit("showGameui")
           this.isrouter = !this.isrouter;
         },
         showPascreen:function(){
