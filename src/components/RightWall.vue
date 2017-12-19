@@ -90,7 +90,7 @@
     width: 30%;
   }
   .right {
-    background-color: #000000;
+    /*background-color: #000000;*/
     width: 30%;
     text-align: center;
     position: fixed;

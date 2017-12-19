@@ -50,7 +50,7 @@
         }
         winHeight = winHeight - 100
         document.getElementById('main').style.height = winHeight + 'px'
-        this.setIntervalID = setInterval(this.createDom, 2000)
+          this.clearIntervalID(true)
         this.setscroll()
       })
     },
@@ -86,7 +86,7 @@
         }
       },
       clearIntervalID:function (val) {
-        if(val==true){
+        if(!val){
           //  关闭心跳
           clearInterval(this.setIntervalID);
         }else{
